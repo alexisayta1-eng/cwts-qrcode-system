@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: cwts-attendance-system
+    runtime: static
+    buildCommand: "" # No build step needed for static files
+    staticPublishPath: public
+    headers:
+      - path: /*
+        name: Service-Worker-Allowed
+        value: /
+    routes:
+      - type: rewrite
+        source: /admin
+        destination: /admin.html
+      - type: rewrite
+        source: /scanner
+        destination: /officer.html
