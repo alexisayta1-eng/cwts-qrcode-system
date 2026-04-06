@@ -605,8 +605,10 @@
                         .insert([{ name: deptName }]);
                     if (error) throw error;
                     loadDepartments();
+                    showToast(`SUCCESS: ${deptName} ADDED!`);
                 } catch (e) {
-                    alert("Error adding department.");
+                    console.error("Error adding department:", e);
+                    alert("Error adding department: " + (e.message || e.error_description || JSON.stringify(e)));
                 }
             }
         }
